@@ -1,0 +1,13 @@
+<h2>Todo Detail</h2>
+
+<hr/>
+<div *ngIf="todo">
+  <div>
+    <label><b>Id: </b></label> {{todo.id}}
+  </div>
+  <div>
+    <label><b>Description: </b></label> {{todo.description}}
+  </div>
+</div>
+
+<button (click)="list()" class="btn btn-primary">Back to To List</button><br>

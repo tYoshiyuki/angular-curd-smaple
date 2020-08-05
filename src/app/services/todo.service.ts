@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Todo} from '../models/todo';
 
 const baseUrl = 'http://localhost:3000/todo';
 
@@ -12,7 +13,11 @@ export class TodoService {
   constructor(private http: HttpClient) {
   }
 
-  get(): Observable<any> {
-    return this.http.get(baseUrl);
+  getList(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(baseUrl);
+  }
+
+  get(id: number): Observable<Todo> {
+    return this.http.get<Todo>(`${baseUrl}/${id}`);
   }
 }

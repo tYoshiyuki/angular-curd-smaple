@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Todo} from '../../models/todo';
 import {TodoService} from '../../services/todo.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,21 +10,29 @@ import {TodoService} from '../../services/todo.service';
 })
 export class TodoListComponent implements OnInit {
 
-  todoList: Array<Todo>;
+  todoList: Todo[];
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.get();
+    this.getList();
   }
 
-  get(): void {
-    this.todoService.get().subscribe(
+  getList(): void {
+    this.todoService.getList().subscribe(
       x => {
         this.todoList = x;
       }
     );
+  }
+
+  delete(id: number): void {
+    // TODO 未実装
+  }
+
+  detail(id: number): void {
+    this.router.navigate(['todo/detail', id]);
   }
 
 }

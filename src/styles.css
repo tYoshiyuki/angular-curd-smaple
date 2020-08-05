@@ -2,9 +2,3 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.bd-title {
-  margin-top: 1rem;
-  margin-bottom: .5rem;
-@include font-size(3rem);
-}
